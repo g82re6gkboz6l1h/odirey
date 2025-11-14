@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased font-sans text-white;
+    background-color: #050c0a;
+    background-image: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 109, 45, 0.22),
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at 70% 0%,
+        rgba(43, 166, 135, 0.2),
+        transparent 40%
+      ),
+      linear-gradient(140deg, rgba(4, 8, 6, 0.95), rgba(5, 12, 10, 0.92));
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    @apply font-display text-white;
+  }
+
+  ::selection {
+    background: rgba(255, 109, 45, 0.45);
+  }
+
+  a {
+    @apply text-nebula-200 transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-pulse-200;
+  }
+}
+
+@layer components {
+  .surface-panel {
+    @apply relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-6 shadow-aurora backdrop-blur-2xl;
+  }
+
+  .surface-muted {
+    @apply rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-2xl;
+  }
+
+  .eyebrow {
+    @apply text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-nebula-200/70;
+  }
+
+  .badge-tonal {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/80;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pulse-500 to-nebula-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform duration-200 hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/80 transition-colors duration-200 hover:border-nebula-400 hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 transition-colors duration-200 hover:text-white;
+  }
+
+  .section-title {
+    @apply text-3xl font-display tracking-tight text-white md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply max-w-2xl text-base text-white/70 md:text-lg;
+  }
+
+  .form-field {
+    @apply w-full rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-colors focus:border-nebula-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grid-overlay {
+    position: relative;
+  }
+
+  .grid-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .glow-border {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+}
